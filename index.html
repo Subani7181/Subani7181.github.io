@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Mahabub Jani - Data Analyst Portfolio (Dark Theme)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        // This script is for the Intersection Observer API for scroll animations
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.scroll-animate').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Gray 900 */
+            color: #d1d5db; /* Gray 300 */
+            scroll-behavior: smooth;
+        }
+        .glass-nav {
+            background-color: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #374151; /* Gray 700 */
+        }
+        .section-title {
+            color: #f9fafb; /* Gray 50 */
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2dd4bf, #38bdf8);
+            border-radius: 2px;
+        }
+        .card {
+            background-color: #1f2937; /* Gray 800 */
+            border-radius: 0.75rem;
+            border: 1px solid #374151; /* Gray 700 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 25px rgba(45, 212, 191, 0.2);
+            border-color: #2dd4bf; /* Teal 400 */
+        }
+        .tag {
+            background-color: #374151; /* Gray 700 */
+            color: #2dd4bf; /* Teal 400 */
+            padding: 0.35rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .btn-secondary {
+            border: 2px solid #2dd4bf;
+            color: #2dd4bf;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #2dd4bf;
+            color: #111827;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="glass-nav sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold text-white tracking-tight">Syed Mahabub Jani</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Projects</a>
+                <a href="#experience" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Experience</a>
+                <a href="#certifications" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Certifications</a>
+                <a href="#education" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Education</a>
+                <a href="#contact" class="font-semibold py-2 px-5 rounded-full btn-secondary">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-300">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2 text-gray-300 hover:text-teal-400">About</a>
+            <a href="#skills" class="block py-2 text-gray-300 hover:text-teal-400">Skills</a>
+            <a href="#projects" class="block py-2 text-gray-300 hover:text-teal-400">Projects</a>
+            <a href="#experience" class="block py-2 text-gray-300 hover:text-teal-400">Experience</a>
+            <a href="#certifications" class="block py-2 text-gray-300 hover:text-teal-400">Certifications</a>
+            <a href="#education" class="block py-2 text-gray-300 hover:text-teal-400">Education</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-teal-400">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <section id="home" class="text-center py-24">
+             <div class="scroll-animate">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-4 tracking-tighter">Syed Mahabub Jani</h1>
+                <p class="text-xl md:text-2xl text-teal-400 font-semibold mb-8">Data Analyst</p>
+                <p class="max-w-3xl mx-auto text-lg text-gray-400 mb-10">
+                    Passionate data enthusiast transforming raw data into actionable insights that support data-driven decision-making.
+                </p>
+                <div class="flex justify-center items-center space-x-6">
+                    <a href="https://www.linkedin.com/in/syed-mahabub-jani-a95a73234/" target="_blank" class="text-gray-400 hover:text-teal-400 transition-colors text-3xl hover:scale-110 transform"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Subani7181" target="_blank" class="text-gray-400 hover:text-white transition-colors text-3xl hover:scale-110 transform"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 scroll-animate">
+            <h2 class="text-4xl font-bold text-center section-title w-max mx-auto">About Me</h2>
+            <div class="max-w-4xl mx-auto text-center text-lg text-gray-400 leading-relaxed">
+                <p>
+                    I am a dedicated and detail-oriented data professional with a strong foundation in data collection, cleaning, analysis, and dashboarding. My goal is to leverage my skills in Python, SQL, and Power BI to contribute to a dynamic analytics team. I thrive on solving complex problems and am continuously enhancing my skills through hands-on projects and practical applications to turn raw data into meaningful stories and strategic assets.
+                </p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24">
+             <h2 class="text-4xl font-bold text-center section-title w-max mx-auto">Technical Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="card p-6 text-center scroll-animate">
+                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-code"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Programming & Databases</h3>
+                    <p class="text-gray-400">Python (Pandas, NumPy, Scikit-learn), SQL (MySQL)</p>
+                </div>
+                <div class="card p-6 text-center scroll-animate" style="animation-delay: 0.2s;">
+                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-chart-bar"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Data Visualization</h3>
+                    <p class="text-gray-400">Power BI, Tableau, Advanced Excel, Matplotlib</p>
+                </div>
+                <div class="card p-6 text-center scroll-animate" style="animation-delay: 0.4s;">
+                    <div class="text-4xl text-teal-400 mb-4"><i class="fas fa-cogs"></i></div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Tools & Techniques</h3>
+                     <p class="text-gray-400">EDA, Data Collection, Data Cleaning, Jupyter Notebook, VS Code, Statistical Analysis</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <h2 class="text-4xl font-bold text-center section-title w-max mx-auto">Personal Projects</h2>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Project 1 -->
+                <div class="card p-6 flex flex-col h-full scroll-animate">
+                    <h3 class="text-xl font-bold text-white mb-2">Retail Sales Analysis</h3>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">End-to-end data analysis of a retail sales database, using advanced SQL for customer segmentation and performance analysis.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">MySQL</span>
+                        </div>
+                        <a href="https://github.com/Subani7181/Retail_Sales_Analysis_SQL_Project" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="card p-6 flex flex-col h-full scroll-animate" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold text-white mb-2">T20 World Cup 2024 Analysis</h3>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">Web-scraped cricket data, cleaned with Power Query, and built automated Power BI dashboards, improving report accuracy by 15%.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">Power BI</span><span class="tag">Python</span><span class="tag">Power Query</span>
+                        </div>
+                        <a href="https://github.com/Subani7181/ICC_Mens_T20_World_Cup_2024" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm">View Project <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Hidden Project -->
+                <div class="card p-6 flex-col extra-project hidden h-full scroll-animate">
+                    <h3 class="text-xl font-bold text-white mb-2">E-Challan Enforcement System</h3>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">Led development of an automated traffic violation detection system using IoT modules to capture and report offenses.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">IoT</span><span class="tag">ESP32-CAM</span><span class="tag">RFID</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12 scroll-animate">
+                <button id="toggle-projects-btn" class="font-semibold py-3 px-6 rounded-full btn-secondary">
+                    Show All Projects
+                </button>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="py-24">
+             <h2 class="text-4xl font-bold text-center section-title w-max mx-auto">Work Experience</h2>
+            <div class="max-w-2xl mx-auto scroll-animate">
+                <div class="card p-8 h-full">
+                    <div class="flex flex-col sm:flex-row justify-between sm:items-start mb-2">
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Machine Learning Intern
+                                <a href="https://www.linkedin.com/posts/syed-mahabub-jani-a95a73234_like-comment-indianservers-activity-7074427772609187841-Zwnc?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAADqIyVEB1lM8lju7z52hicQEq443rqg2qy" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 transition-colors ml-2 font-normal text-sm inline-block">
+                                    View Post <i class="fas fa-external-link-alt text-xs"></i>
+                                </a>
+                            </h4>
+                            <p class="text-teal-400 font-semibold">Indian Servers (Remote)</p>
+                        </div>
+                        <p class="text-gray-400 font-medium mt-2 sm:mt-0 flex-shrink-0">May 2023 - July 2023</p>
+                    </div>
+                    <ul class="mt-4 list-disc list-inside text-gray-300 space-y-2 text-sm">
+                        <li>Developed a machine learning-powered Telegram bot using Python to recommend food items for various diseases.</li>
+                        <li>Implemented a system to process user input and match it against an Excel dataset for accurate dietary suggestions.</li>
+                        <li>Utilized Python scripting to integrate the Telegram Bot API and manage the dataset efficiently.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-24">
+            <h2 class="text-4xl font-bold text-center section-title w-max mx-auto">Certifications and Courses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Cert 1 -->
+                <div class="card p-6 flex flex-col h-full scroll-animate">
+                    <h3 class="text-xl font-bold text-white mb-2">Analyzing Data with Excel</h3>
+                    <p class="text-sm text-gray-400 mb-1">Issued by <span class="font-semibold text-gray-300">IBM</span></p>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">Completed comprehensive training on data analysis using Excel and Google Sheets, covering data cleaning, pivot tables, and visualization to extract actionable insights.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">MS Excel</span><span class="tag">Google Sheets</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1X1tn4AC54SAIp_krY9NqeiNo8ZpRYv0Z/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm">View Certificate <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Cert 2 -->
+                <div class="card p-6 flex flex-col h-full scroll-animate" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold text-white mb-2">SQL for Data Science</h3>
+                    <p class="text-sm text-gray-400 mb-1">Issued by <span class="font-semibold text-gray-300">IBM</span></p>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">Mastered SQL for data science applications, including complex queries, joins, and database manipulation to effectively retrieve and analyze data.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                             <span class="tag">SQL</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1P3yhbct-4lVPw-sSQw8Oyi7iYAqa7AN4/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm">View Certificate <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <!-- Hidden Certs -->
+                <div class="card p-6 flex-col h-full extra-certificate hidden scroll-animate">
+                    <h3 class="text-xl font-bold text-white mb-2">Data Science</h3>
+                    <p class="text-sm text-gray-400 mb-1">Issued by <span class="font-semibold text-gray-300">Internshala Trainings</span></p>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">Gained foundational knowledge in data science, focusing on statistical analysis and Python programming to build predictive models and interpret complex datasets.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">Python</span><span class="tag">Statistics</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/10lwYNKcVwRkqpwVDcO-JcE8OjTYfGPmI/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm">View Certificate <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="card p-6 flex-col h-full extra-certificate hidden scroll-animate">
+                    <h3 class="text-xl font-bold text-white mb-2">Data Science</h3>
+                    <p class="text-sm text-gray-400 mb-1">Issued by <span class="font-semibold text-gray-300">NSDC</span></p>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">Completed a comprehensive program covering the full data science lifecycle, including statistics, Python, and key libraries like Pandas, NumPy, and Matplotlib.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag">Python</span><span class="tag">Statistics</span><span class="tag">Pandas</span><span class="tag">NumPy</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1VZl0yEJXDt9dZSEjFrs_ZOMjnI8lHidC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm">View Certificate <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="card p-6 flex-col h-full extra-certificate hidden scroll-animate">
+                    <h3 class="text-xl font-bold text-white mb-2">Internship & Job preparation</h3>
+                    <p class="text-sm text-gray-400 mb-1">Issued by <span class="font-semibold text-gray-300">Internshala Trainings</span></p>
+                    <p class="text-gray-400 mb-4 flex-grow text-sm">Completed specialized training focused on interview preparation, resume building, and professional skills for securing internships and full-time roles.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div class="flex flex-wrap gap-2">
+                             <span class="tag">Interview Training</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/13Jm9_9ov_UAugy_NcNXD5lC25OgcjS1D/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="text-teal-400 hover:text-teal-300 font-semibold text-sm">View Certificate <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+             <div class="text-center mt-12 scroll-animate">
+                <button id="toggle-certs-btn" class="font-semibold py-3 px-6 rounded-full btn-secondary">
+                    Show All Certificates
+                </button>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-24">
+            <h2 class="text-4xl font-bold text-center section-title w-max mx-auto">Education</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="card p-6 scroll-animate">
+                    <p class="font-bold text-white">B.Tech - CSE (IoT)</p>
+                    <p class="text-sm text-gray-400">St. Ann's College of Engineering & Technology | CGPA: 7.36</p>
+                </div>
+                <div class="card p-6 scroll-animate" style="animation-delay: 0.2s;">
+                    <p class="font-bold text-white">Intermediate - MPC</p>
+                    <p class="text-sm text-gray-400">D.V.C Viveka Junior College | CGPA: 8.35</p>
+                </div>
+                 <div class="card p-6 scroll-animate" style="animation-delay: 0.4s;">
+                    <p class="font-bold text-white">10th - SSC</p>
+                    <p class="text-sm text-gray-400">Anil & Prasad High School | CGPA: 9.0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24">
+            <div class="text-center scroll-animate">
+                <h2 class="text-4xl font-bold text-white">Get In Touch</h2>
+                <p class="text-lg text-gray-400 mt-4 mb-8 max-w-xl mx-auto">I'm actively seeking new opportunities and would love to hear from you. Let's connect!</p>
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8 text-xl">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-envelope text-teal-400"></i>
+                        <a href="mailto:syedmahaboobjani772@gmail.com" class="text-gray-300 hover:text-teal-300 transition-colors">syedmahaboobjani772@gmail.com</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-phone-alt text-teal-400"></i>
+                        <a href="tel:+918179563082" class="text-gray-300 hover:text-teal-300 transition-colors">+91 8179563082</a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-map-marker-alt text-teal-400"></i>
+                        <a href="https://maps.app.goo.gl/RZyfBnTJvKphkeLy5" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-teal-300 transition-colors">Bapatla, Andhra Pradesh</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 text-gray-500 text-center py-6">
+        <p>&copy; 2025 Syed Mahabub Jani. Designed with <i class="fas fa-heart text-teal-500"></i>.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project toggle button
+        const toggleProjectsBtn = document.getElementById('toggle-projects-btn');
+        const extraProjects = document.querySelectorAll('.extra-project');
+        let projectsVisible = false;
+
+        toggleProjectsBtn.addEventListener('click', () => {
+            projectsVisible = !projectsVisible;
+            extraProjects.forEach(project => {
+                project.classList.toggle('hidden');
+            });
+            toggleProjectsBtn.textContent = projectsVisible ? 'Show Less Projects' : 'Show All Projects';
+        });
+
+        // Certificate toggle button
+        const toggleCertsBtn = document.getElementById('toggle-certs-btn');
+        const extraCerts = document.querySelectorAll('.extra-certificate');
+        let certsVisible = false;
+
+        toggleCertsBtn.addEventListener('click', () => {
+            certsVisible = !certsVisible;
+            extraCerts.forEach(cert => {
+                cert.classList.toggle('hidden');
+            });
+            toggleCertsBtn.textContent = certsVisible ? 'Show Less Certificates' : 'Show All Certificates';
+        });
+    </script>
+
+</body>
+</html>
