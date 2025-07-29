@@ -89,31 +89,37 @@ html.ready {
 <body class="antialiased">
 
     <header class="glass-nav sticky top-0 z-50">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-extrabold text-white tracking-tight">Syed Mahabub Jani</a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">About</a>
-                <a href="#skills" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Skills</a>
-                <a href="#projects" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Projects</a>
-                <a href="#experience" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Experience</a>
-                <a href="#certifications" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Certifications</a>
-                <a href="#education" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Education</a>
-                <a href="#contact" class="font-semibold py-2 px-5 rounded-full btn-secondary">Contact</a>
-            </div>
-            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-300">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </nav>
-        <nav id="mobile-menu" class="md:hidden hidden px-6 pb-4 bg-gray-900 border-t border-gray-700">
-            <a href="#about" class="block py-2 text-gray-300 hover:text-teal-400">About</a>
-            <a href="#skills" class="block py-2 text-gray-300 hover:text-teal-400">Skills</a>
-            <a href="#projects" class="block py-2 text-gray-300 hover:text-teal-400">Projects</a>
-            <a href="#experience" class="block py-2 text-gray-300 hover:text-teal-400">Experience</a>
-            <a href="#certifications" class="block py-2 text-gray-300 hover:text-teal-400">Certifications</a>
-            <a href="#education" class="block py-2 text-gray-300 hover:text-teal-400">Education</a>
-            <a href="#contact" class="block py-2 text-gray-300 hover:text-teal-400">Contact</a>
-        </nav>
-    </header>
+  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="#" class="text-2xl font-extrabold text-white tracking-tight">Syed Mahabub Jani</a>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center space-x-8">
+      <a href="#about" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">About</a>
+      <a href="#skills" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Skills</a>
+      <a href="#projects" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Projects</a>
+      <a href="#experience" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Experience</a>
+      <a href="#certifications" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Certifications</a>
+      <a href="#education" class="text-gray-300 hover:text-teal-400 font-medium transition-colors">Education</a>
+      <a href="#contact" class="font-semibold py-2 px-5 rounded-full btn-secondary">Contact</a>
+    </div>
+
+    <!-- Hamburger -->
+    <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-300">
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-gray-900 border-t border-gray-700">
+    <a href="#about" class="block py-2 text-gray-300 hover:text-teal-400">About</a>
+    <a href="#skills" class="block py-2 text-gray-300 hover:text-teal-400">Skills</a>
+    <a href="#projects" class="block py-2 text-gray-300 hover:text-teal-400">Projects</a>
+    <a href="#experience" class="block py-2 text-gray-300 hover:text-teal-400">Experience</a>
+    <a href="#certifications" class="block py-2 text-gray-300 hover:text-teal-400">Certifications</a>
+    <a href="#education" class="block py-2 text-gray-300 hover:text-teal-400">Education</a>
+    <a href="#contact" class="block py-2 text-gray-300 hover:text-teal-400">Contact</a>
+  </nav>
+</header>
 
     <main class="container mx-auto px-6 py-12">
 
@@ -368,24 +374,18 @@ html.ready {
         });
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
-const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+        
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+          });
+        });
 
-mobileMenuButton.addEventListener('click', () => {
-  if (window.innerWidth < 768) {
-    mobileMenu.classList.toggle('hidden');
-  }
-});
-
-document.querySelectorAll('#mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    if (window.innerWidth < 768) {
-      mobileMenu.classList.add('hidden');
-    }
-  });
-});
-window.addEventListener('DOMContentLoaded', () => {
-  document.documentElement.classList.add('ready');
-});
     </script>
 
 </body>
