@@ -74,6 +74,16 @@
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
         }
+        html {
+    visibility: hidden;
+    opacity: 0;
+}
+html.ready {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+}
+
     </style>
 </head>
 <body class="antialiased">
@@ -94,7 +104,7 @@
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+        <nav id="mobile-menu" class="md:hidden hidden px-6 pb-4 bg-gray-900 border-t border-gray-700">
             <a href="#about" class="block py-2 text-gray-300 hover:text-teal-400">About</a>
             <a href="#skills" class="block py-2 text-gray-300 hover:text-teal-400">Skills</a>
             <a href="#projects" class="block py-2 text-gray-300 hover:text-teal-400">Projects</a>
@@ -102,7 +112,7 @@
             <a href="#certifications" class="block py-2 text-gray-300 hover:text-teal-400">Certifications</a>
             <a href="#education" class="block py-2 text-gray-300 hover:text-teal-400">Education</a>
             <a href="#contact" class="block py-2 text-gray-300 hover:text-teal-400">Contact</a>
-        </div>
+        </nav>
     </header>
 
     <main class="container mx-auto px-6 py-12">
@@ -358,16 +368,24 @@
         });
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        // Close mobile menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
+const mobileMenu = document.getElementById('mobile-menu');
+
+mobileMenuButton.addEventListener('click', () => {
+  if (window.innerWidth < 768) {
+    mobileMenu.classList.toggle('hidden');
+  }
+});
+
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth < 768) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+});
+window.addEventListener('DOMContentLoaded', () => {
+  document.documentElement.classList.add('ready');
+});
     </script>
 
 </body>
